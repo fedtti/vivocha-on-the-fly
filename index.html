@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,29 +7,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <h2>Vivocha On The Fly</h2>
+    <h1>Vivocha On The Fly</h1>
     <div class="container">
         <div id="link-home" > </div>
 
-        <label>Account</label>
-        <input id="account" type="text" value="" placeholder="insert your vivocha account id">
+        <label for="account">Account</label>
+        <input id="account" type="text" value="" placeholder="Insert your Vivocha account ID…">
 
         <div class="hidden" id="world_container">
             <label class="world">API Server</label>
             <input id="world"  type="text" value="www.vivocha.com">
         </div>
 
-        <label>URLs</label><button id="addbutton">+</button>    
+        <label>URLs</label><button id="addbutton">+</button>
         <div id="patterns">
         </div>
         
         <div id="buttons">
         <button id="savebutton">Save</button>
         <button id="undobutton">Undo</button>
-        <button id="advanced" >advanced</button>
+        <button id="advanced">Advanced</button>
         </div>
     </div>
     <script src="./main.js"></script>

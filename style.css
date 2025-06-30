@@ -1,7 +1,31 @@
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { height: 100%; }
-      body { background-color: #efefef; width: 450px; font-family: Oswald, sans-serif; letter-spacing: -0.05em; margin: 0; }
-:focus {outline:none;}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+html {
+  font-size: 62.5%;
+  width: 100%;
+}
+
+body {
+  background-color: #efefef;
+  
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: -0.05em;
+  width: 45rem;
+}
+
+
+
+      :focus {outline:none;}
 h2{text-align: center;  font-size:  1em; margin-bottom: 0; margin-top: 12px;}
 .container {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJtbW0+jDA+iFNVVbUFLADjgNiMyByQAACVoQ3jddxHjgAAAABJRU5ErkJggg==);;margin: 24px 0 0 0 ;padding: 3% 10% 3% 10%;}
 .hidden{display: none}  
