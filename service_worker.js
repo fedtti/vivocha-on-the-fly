@@ -3,11 +3,11 @@ const getMapping = async () =>{
   return (await chrome.storage.local.get('vivocha-on-the-fly'))['vivocha-on-the-fly'];
 };
 
-function updateHandler(tab) {
-  chrome.browserAction.setBadgeText({text:''});
+const updateHandler = () => {
+  chrome.browserAction.setBadgeText({ text: '' });
   chrome.tabs.executeScript(
-    null, {file:"vivocha-extension.js"});
-}
+    null, { file: 'vivocha-extension.js' });
+};
 
 chrome.tabs.onUpdated.addListener(updateHandler);
 chrome.tabs.onCreated.addListener(updateHandler);

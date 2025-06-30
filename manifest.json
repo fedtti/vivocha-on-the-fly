@@ -14,7 +14,7 @@
   "browser_action": {
     "name": "Vivocha On The Fly",
     "default_icon": "small.ico",
-    "default_popup": "config.html"
+    "default_popup": "index.html"
   },
   "icons": {
     "16":  "small.ico",
