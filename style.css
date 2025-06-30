@@ -17,18 +17,30 @@ html {
 
 body {
   background-color: #efefef;
-  
   font-family: 'Oswald', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
   letter-spacing: -0.05em;
   width: 45rem;
 }
 
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 1.2rem auto 0 auto;
+  text-align: center;
+}
 
+#container {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJtbW0+jDA+iFNVVbUFLADjgNiMyByQAACVoQ3jddxHjgAAAABJRU5ErkJggg==);
+  margin: 2.4rem 0 0 0;
+  padding: 3% 10% 3% 10%;
+}
 
-      :focus {outline:none;}
-h2{text-align: center;  font-size:  1em; margin-bottom: 0; margin-top: 12px;}
-.container {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJtbW0+jDA+iFNVVbUFLADjgNiMyByQAACVoQ3jddxHjgAAAABJRU5ErkJggg==);;margin: 24px 0 0 0 ;padding: 3% 10% 3% 10%;}
-.hidden{display: none}  
+.hidden{
+  display: none;
+}
 
 input, button {font-family: arial;font-size: 18px}
 button{ border-radius:2px; height: 38px; background: #c2765a; border: none; font-weight: 700;   color: #efefef; padding: 0.3em 1.5em;font-size: 1em;letter-spacing: -0.05em; cursor:pointer;}

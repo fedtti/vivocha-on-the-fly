@@ -29,13 +29,10 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
     var acct = findMatchingAccount(sender.tab.url);
     sendResponse({account: acct.account, world: acct.world });
   } else if (request.message == "vivocha-enabled") {
-      chrome.browserAction.setIcon({path: '/img/on_16.png'})
-    //chrome.browserAction.setBadgeBackgroundColor({color:[0, 200, 0, 100]});
-    //chrome.browserAction.setBadgeText({text:'On'});
+      chrome.browserAction.setIcon({path: '/images/on_16.png'})
   } else if (request.message == "vivocha-disabled") {
-      chrome.browserAction.setIcon({path: '/img/off_16.png'})
-    //chrome.browserAction.setBadgeBackgroundColor({color:[0, 100, 0, 0]});
-    //chrome.browserAction.setBadgeText({text:'Off'});
+      chrome.browserAction.setIcon({path: '/images/off_16.png'})
+
   } else if (request.message == "vivocha-insert") {
     updateHandler();
   }

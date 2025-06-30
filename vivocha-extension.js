@@ -15,13 +15,12 @@ const removePreviousScript = () => {
 };
 
 const removeDataFrame = () => {
-  var frame = document.getElementById('vivocha_data')
-  if(frame) {
-    var parentNode = frame.parentNode;
+  const frame = document.getElementById('vivocha_data')
+  if (!!frame) {
+    const parentNode = frame.parentNode;
     parentNode.removeChild(frame);
   }
 };
-
 
 const uuid ='2bee4260-edf9-11e1-bbcd-0002a5d5c51b';
 
@@ -40,17 +39,14 @@ const insertScript = (account, world) => {
   }
 };
 
-function checkInsert() {
-
-  var script = document.getElementById(uuid);
-
-  if (script) {
-    chrome.extension.sendMessage({ message: "vivocha-enabled"});
+const checkInsert = () => {
+  const script = document.getElementById(uuid);
+  if (!!script) {
+    chrome.extension.sendMessage({ message: 'vivocha-enabled' });
   } else {
-    chrome.extension.sendMessage({ message: "vivocha-disabled"});
+    chrome.extension.sendMessage({ message: 'vivocha-disabled' });
   }
-
-}
+};
 
 const requestAccount = () => {
   chrome.extension.sendMessage({ message: 'waiting-account' }, (response) => {
@@ -64,14 +60,12 @@ const requestAccount = () => {
 chrome.extension.onMessage.addListener((request) => {
   if (request.message === 'update-vivocha-state') {
     checkInsert();
-  } 
+  }
 });
 
-// Try to insert it if we missed document load event
 requestAccount();
 
 try {
-  // Try to insert later, during the document load event
   document.addEventListener('DOMContentLoaded', () => {
     requestAccount();
   });
