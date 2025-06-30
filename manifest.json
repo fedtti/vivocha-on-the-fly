@@ -2,7 +2,8 @@
   "name": "Vivocha On The Fly",
   "version": "2.0.0-alpha",
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "service_worker.js",
+    "type": "module"
   },
   "permissions": [
     "tabs"
