@@ -1,0 +1,30 @@
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      body { background-color: #efefef; width: 450px; font-family: Oswald, sans-serif; letter-spacing: -0.05em; margin: 0; }
+:focus {outline:none;}
+h2{text-align: center;  font-size:  1em; margin-bottom: 0; margin-top: 12px;}
+.container {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJtbW0+jDA+iFNVVbUFLADjgNiMyByQAACVoQ3jddxHjgAAAABJRU5ErkJggg==);;margin: 24px 0 0 0 ;padding: 3% 10% 3% 10%;}
+.hidden{display: none}  
+
+input, button {font-family: arial;font-size: 18px}
+button{ border-radius:2px; height: 38px; background: #c2765a; border: none; font-weight: 700;   color: #efefef; padding: 0.3em 1.5em;font-size: 1em;letter-spacing: -0.05em; cursor:pointer;}
+input {width: 100%;color: #787878;height: 33px; margin-bottom: 18px;border:none;padding-left: 2%;}
+input:focus{background: #D6F1F9; }
+label{display: block; font-size: 18px;}
+
+#account, #world {width: 100%;}
+.removebutton {width: 25px;margin-left: 4px;}
+#buttons{text-align: center;margin-top: 12px; position: relative}
+#link-home { background: url(img/onthefly_03.png); background-position: 50% 50%;height: 80px;width: 150px;  background-repeat: no-repeat; background-size: 66%; position: relative; margin: -35px auto;  top: -23px;  border-radius: 50%;}
+#buttons button:hover{opacity: 0.6;}
+#undobutton{background: #d8d8d8; color:#787878 }
+#addbutton, .removebutton{background: #efefef; color: #181818;border:4px solid;width: 30px;height: 30px;line-height: 15px;text-align: center;padding: 0;border-radius: 50%;float: left;font-size: 1.5em;position: relative; left:94%; top: -28px;padding-right: 1px;font-weight: 700;}
+#patterns{max-height: 200px; overflow: auto; padding:  0; width: 100%;position: relative;top: -19px;}
+#patterns > div{width: 100%; max-height: 36px; float:left; }
+#addbutton:hover{color: #c2765a; border-color: #c2765a;}
+.removebutton{left: 0;top: -32px; }
+.removebutton:hover{border-color:#dd565a; color: #dd565a;}
+.urlmatch{ margin-left: 12%; width: 88%; margin-bottom: 0}
+
+#advanced{background: transparent;float: right;/* width: 40px; */font-size: 0.7em;color: #787878;right: 0;position: absolute; background: #efefef; height: 22px; bottom:0;}
+.selected{background: #c2765a!important; color:white !important;}
