@@ -92,7 +92,7 @@ function persisteOptionsHandler() {
   saveOptions();
 
   
-  localStorage['VivochaOnTheFly'] = JSON.stringify(mapping);
+  localStorage['vivocha-on-the-fly'] = JSON.stringify(mapping);
 
 
   tellTabToInsertScript();
@@ -117,7 +117,7 @@ function loadOptions() {
 }
 
 function undo() {
-  mapping = JSON.parse(localStorage['VivochaOnTheFly'] || {});
+  mapping = JSON.parse(localStorage['vivocha-on-the-fly'] || {});
   loadOptions();
 }
 

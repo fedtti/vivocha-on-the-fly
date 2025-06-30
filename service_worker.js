@@ -1,7 +1,7 @@
 
-function getMapping() {
-  return JSON.parse(localStorage['VivochaOnTheFly'] || '{}');
-}
+const getMapping = async () =>{
+  return (await chrome.storage.local.get('vivocha-on-the-fly'))['vivocha-on-the-fly'];
+};
 
 function updateHandler(tab) {
   chrome.browserAction.setBadgeText({text:''});
