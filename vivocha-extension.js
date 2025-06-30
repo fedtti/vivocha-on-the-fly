@@ -1,47 +1,44 @@
-
-var uuid ='2bee4260-edf9-11e1-bbcd-0002a5d5c51b';
-
-function removePreviousScript () {
-  var scripts = document.getElementsByTagName('script');
-  var found, parentNode;
-  for (var i = 0; scripts && i < scripts.length; i++) {
-    var script = scripts[i];
-    var url = script.src;
-    var check = url.match(/\/a\/(\w*)\/(api|apps|widgetwrap)\/(console\/)?(vivocha|dataframe)?/);
-    if (check && check.length > 1) {
+const removePreviousScript = () => {
+  const scripts = document.getElementsByTagName('script');
+  let found,
+      parentNode;
+  for (const script of scripts) {
+    const url = script.src;
+    const check = url.match(/\/a\/(\w*)\/(api|apps|widgetwrap)\/(console\/)?(vivocha|dataframe)?/);
+    if (!!check && check.length > 1) {
       parentNode = script.parentNode;
       parentNode.removeChild(script);
       found = true;
     }
   }
   return parentNode;
-}
+};
 
-function removeDataFrame() {
+const removeDataFrame = () => {
   var frame = document.getElementById('vivocha_data')
   if(frame) {
     var parentNode = frame.parentNode;
     parentNode.removeChild(frame);
   }
-}
+};
 
-function insertScript(account, world) {
 
-  var script = document.getElementById(uuid);
+const uuid ='2bee4260-edf9-11e1-bbcd-0002a5d5c51b';
 
+const insertScript = (account, world) => {
+  const script = document.getElementById(uuid);
   if (!script) {
     delete window.vivocha;
     removeDataFrame();
-    var parentNode = removePreviousScript() || document.body;
+    const parentNode = removePreviousScript() || document.body;
     script = document.createElement('script');
     script.setAttribute('type', 'text/javascript'); 
     script.setAttribute('id', uuid);
-    var domain = world ? world : 'www.vivocha.com';
-    script.setAttribute('src', '//' + domain + '/a/' + account + '/api/vivocha.js');
+    const domain = !!world ? world : 'www.vivocha.com';
+    script.setAttribute('src', `//${domain}/a/${account}/api/vivocha.js`);
     parentNode.appendChild(script);
   }
-
-}
+};
 
 function checkInsert() {
 
@@ -55,20 +52,17 @@ function checkInsert() {
 
 }
 
-function requestAccount() {
-
-  chrome.extension.sendMessage({ message: "waiting-account"}, function(response) {
-    if (response.account)
+const requestAccount = () => {
+  chrome.extension.sendMessage({ message: 'waiting-account' }, (response) => {
+    if (!!response.account) {
       insertScript(response.account, response.world);
-    
-    checkInsert()
-
+    }
+    checkInsert();
   });
+};
 
-}
-
-chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.message == "update-vivocha-state") {
+chrome.extension.onMessage.addListener((request) => {
+  if (request.message === 'update-vivocha-state') {
     checkInsert();
   } 
 });
@@ -78,7 +72,7 @@ requestAccount();
 
 try {
   // Try to insert later, during the document load event
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', () => {
     requestAccount();
   });
-} catch(e) {}
+} catch(error) {}

@@ -1,9 +1,14 @@
 {
   "name": "Vivocha On The Fly",
-  "version": "1.6.1",
-  "background": { "scripts": ["background.js"] },
+  "version": "2.0.0-alpha",
+  "background": {
+    "scripts": ["background.js"]
+  },
   "permissions": [
-    "tabs", "*://*/*"
+    "tabs"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
   ],
   "browser_action": {
     "name": "Vivocha On The Fly",
@@ -15,5 +20,5 @@
     "48":  "img/medium.png",
     "128": "img/big.png"
   },
-  "manifest_version": 2
+  "manifest_version": 3
 }
