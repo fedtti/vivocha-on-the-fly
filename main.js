@@ -14,7 +14,7 @@ const saveOptions = () => {
   const world = document.getElementById('world').value;
   let patterns = [];
   while (pattern) {
-    var regex = next(pattern.firstChild, 'INPUT').value;
+    const regex = next(pattern.firstChild, 'INPUT').value;
     patterns.push(regex);
     pattern = next(pattern.nextSibling, 'DIV');
   }
@@ -114,10 +114,10 @@ const advanced = () => {
   const element = document.getElementById('world-container');
   const advanced = document.getElementById('advanced');
   if (!!advanced) {
-    advanced.className = !!advanced.className ? ' ' : ' selected';
+    advanced.className = !!advanced.className ? '' : 'selected';
   }
-  if(!!element) {
-    element.className = !!element.className ? ' ' : 'hidden';
+  if (!!element) {
+    element.className = !!element.className ? '' : 'hidden';
   }
 };
 
