@@ -4,34 +4,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vivocha On The Fly</title>
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap">
     <link rel="stylesheet" type="text/css" href="./style.css">
-
-
-</head>
-<body>
-    <h2>Vivocha On The Fly</h2>
-    <div class="container">
+  </head>
+  <body>
+    <h1>Vivocha On The Fly</h1>
+    <div id="container">
         <div id="link-home" > </div>
 
         <label>Account</label>
         <input id="account" type="text" value="" placeholder="insert your vivocha account id"/>
 
-        <div class="hidden" id="world_container">
+        <div class="hidden" id="world-container">
             <label class="world">API Server</label>
             <input id="world"  type="text" value="www.vivocha.com"/>
         </div>
 
-        <label>URLs</label><button id="addbutton">+</button>    
-        <div id="patterns">
-        </div>
+        <label>URLs</label><button id="add-button">+</button>
+        <div id="patterns"></div>
         
         <div id="buttons">
-        <button id="savebutton">Save</button>
-        <button id="undobutton">Undo</button>
+        <button id="save-button">Save</button>
+        <button id="undo-button">Undo</button>
         <button id="advanced" >advanced</button>
         </div>
     </div>
-<script src="./main.js"></script>
-</body>
+    <script src="./main.js"></script>
+  </body>
 </html>

@@ -26,9 +26,9 @@ const saveOptions = () => {
   mapping.account = data;
 };
 
-function removePattern(obj) {
-  obj.parentNode.parentNode.removeChild(obj.parentNode);
-}
+const removePattern = (object) => {
+  object.parentNode.parentNode.removeChild(object.parentNode);
+};
 
 const removePatternHandler = (element) => {
   removePattern(element.srcElement);
@@ -39,10 +39,9 @@ const addPattern = (value) => {
   const patterns = document.getElementById('patterns');
   const div = document.createElement('div');
   const input = document.createElement('input');
-
-  input.setAttribute("class", "urlmatch");
+  input.setAttribute('class', 'url-match');
   const button = document.createElement('button');
-  button.setAttribute("class", "removebutton");
+  button.setAttribute('class', 'remove-button');
 
   button.innerText = "-";
   div.appendChild(input);
@@ -67,19 +66,12 @@ const addPatternHandler = () => {
   });
 };
 
-const clear = () => {
-  const patterns = document.getElementById('patterns');
-  while (patterns.firstChild) {
-    patterns.removeChild(patterns.firstChild);
-  }
+const tellTabToInsertScript = () => {
+  chrome.extension.sendMessage({ message: 'vivocha-insert' });
 };
 
-function tellTabToInsertScript() {
-  chrome.extension.sendMessage({ message: 'vivocha-insert' });
-}
 
-
-function persisteOptionsHandler() {
+function persistOptionsHandler() {
 
   saveOptions();
 
@@ -93,16 +85,22 @@ function persisteOptionsHandler() {
 
 }
 
-function loadOptions() {
+const clear = () => {
+  const patterns = document.getElementById('patterns');
+  while (patterns.firstChild) {
+    patterns.removeChild(patterns.firstChild);
+  }
+};
+
+const loadOptions = () => {
   clear();
-  for (var i in mapping) {
-    document.getElementById("account").value = i;
-    var data = mapping[i];
-    document.getElementById("world").value = data.world || 'www.vivocha.com';
-    var patterns = data.patterns;
-    //var patterns = mapping[i];
-    for (var j in patterns) {
-      addPattern(patterns[j]);
+  for (let map in mapping) {
+    document.getElementById('account').value = map;
+    const data = mapping[map];
+    document.getElementById('world').value = data.world || 'www.vivocha.com';
+    const patterns = data.patterns;
+    for (const pattern in patterns) {
+      addPattern(patterns[pattern]);
     }
   }
 }
@@ -112,24 +110,21 @@ function undo() {
   loadOptions();
 }
 
+const advanced = () => {
+  const element = document.getElementById('world-container');
+  const advanced = document.getElementById('advanced');
+  if (!!advanced) {
+    advanced.className = !!advanced.className ? ' ' : ' selected';
+  }
+  if(!!element) {
+    element.className = !!element.className ? ' ' : 'hidden';
+  }
+};
 
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('addbutton').addEventListener('click', addPatternHandler);
-  document.getElementById('savebutton').addEventListener('click', persisteOptionsHandler);
-  document.getElementById('undobutton').addEventListener('click', undo);
-    document.getElementById('advanced').addEventListener("click", advanced, false);
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('add-button').addEventListener('click', addPatternHandler);
+  document.getElementById('save-button').addEventListener('click', persistOptionsHandler);
+  document.getElementById('undo-button').addEventListener('click', undo);
+  document.getElementById('advanced').addEventListener('click', advanced, false);
   undo();
 });
-
-
-function advanced(){
-     var el = document.getElementById('world_container');
-    var ad =  document.getElementById('advanced');
-     if(ad) {
-    ad.className =  ad.className ? ' ' : ' selected';
-     }
-    if(el) {
-        el.className = el.className ? ' ' : 'hidden';
-      }
-}
-
