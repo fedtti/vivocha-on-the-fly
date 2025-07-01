@@ -68,7 +68,6 @@ const tellTabToInsertScript = () => {
   chrome.extension.sendMessage({ message: 'vivocha-insert' });
 };
 
-
 function persistOptionsHandler() {
 
   saveOptions();
