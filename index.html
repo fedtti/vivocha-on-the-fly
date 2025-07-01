@@ -1,0 +1,37 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vivocha On The Fly</title>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+
+</head>
+<body>
+    <h2>Vivocha On The Fly</h2>
+    <div class="container">
+        <div id="link-home" > </div>
+
+        <label>Account</label>
+        <input id="account" type="text" value="" placeholder="insert your vivocha account id"/>
+
+        <div class="hidden" id="world_container">
+            <label class="world">API Server</label>
+            <input id="world"  type="text" value="www.vivocha.com"/>
+        </div>
+
+        <label>URLs</label><button id="addbutton">+</button>    
+        <div id="patterns">
+        </div>
+        
+        <div id="buttons">
+        <button id="savebutton">Save</button>
+        <button id="undobutton">Undo</button>
+        <button id="advanced" >advanced</button>
+        </div>
+    </div>
+<script src="./main.js"></script>
+</body>
+</html>

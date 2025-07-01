@@ -1,10 +1,47 @@
-function addPattern(value) {
+const next = (node, tag) => {
+  while (!!node && node.nodeName !== tag) {
+    node = node.nextSibling;
+  }
+  return node;
+};
 
-  var patterns = document.getElementById("patterns");
-  var div = document.createElement("div");
-  var input = document.createElement("input");
+
+let mapping = {};
+
+const saveOptions = () => {
+  const pattern = next(document.getElementById('patterns').firstChild, 'DIV');
+  const account = document.getElementById('account').value;
+  const world = document.getElementById('world').value;
+  let patterns = [];
+  while (pattern) {
+    var regex = next(pattern.firstChild, 'INPUT').value;
+    patterns.push(regex);
+    pattern = next(pattern.nextSibling, 'DIV');
+  }
+  const data = {
+    'world': world,
+    'patterns': patterns
+  };
+  mapping = {};
+  mapping.account = data;
+};
+
+function removePattern(obj) {
+  obj.parentNode.parentNode.removeChild(obj.parentNode);
+}
+
+const removePatternHandler = (element) => {
+  removePattern(element.srcElement);
+  saveOptions();
+};
+
+const addPattern = (value) => {
+  const patterns = document.getElementById('patterns');
+  const div = document.createElement('div');
+  const input = document.createElement('input');
+
   input.setAttribute("class", "urlmatch");
-  var button = document.createElement("button");
+  const button = document.createElement('button');
   button.setAttribute("class", "removebutton");
 
   button.innerText = "-";
@@ -12,80 +49,35 @@ function addPattern(value) {
   div.appendChild(button);
 
   input.value = value;
-
   patterns.insertBefore(div, patterns.firstChild);
-
   button.addEventListener('click', removePatternHandler, button);
-  
-}
+};
 
-function addPatternHandler(e) {
+const addPatternHandler = () => {
   chrome.tabs.query({
     active: true,
     currentWindow: true
-  }, function (tabs) {
-    if (tabs.length > 0)
+  }, (tabs) => {
+    if (tabs.length > 0) {
       addPattern(tabs[0].url);
-    else
-      addPattern('.*')
+    } else {
+      addPattern('.*');
+    }
     saveOptions();
   });
-}
+};
 
-function removePattern(obj) {
-  obj.parentNode.parentNode.removeChild(obj.parentNode);
-}
-
-function removePatternHandler(e) {
-  removePattern(e.srcElement);
-  saveOptions();
-}
-
-function next(node, tag) {
-
-  while(node && node.nodeName != tag)
-    node = node.nextSibling;
-
-  return node;
-  
-}
-
-function clear() {
-
-  var patterns = document.getElementById("patterns");
-
-  while (patterns.firstChild)
+const clear = () => {
+  const patterns = document.getElementById('patterns');
+  while (patterns.firstChild) {
     patterns.removeChild(patterns.firstChild);
-
-}
+  }
+};
 
 function tellTabToInsertScript() {
-  chrome.extension.sendMessage({ message: "vivocha-insert"});
+  chrome.extension.sendMessage({ message: 'vivocha-insert' });
 }
 
-
-function saveOptions() {
-  var pattern = next(document.getElementById("patterns").firstChild, 'DIV');
-  var account = document.getElementById("account").value;
-  var world = document.getElementById("world").value;
-
-  var patterns = [];
-
-  while (pattern) {
-
-    var regex = next(pattern.firstChild, "INPUT").value;
-
-    patterns.push(regex);
-
-    pattern = next(pattern.nextSibling, "DIV");
-    
-  }
-  var data = {'world' : world, 'patterns': patterns};
-  mapping = {};
-  //mapping[account] = patterns;
-  mapping[account] = data;
-  //chrome.extension.getBackgroundPage().console.log(data);
- }
 
 function persisteOptionsHandler() {
 
@@ -101,7 +93,6 @@ function persisteOptionsHandler() {
 
 }
 
-var mapping = {};
 function loadOptions() {
   clear();
   for (var i in mapping) {
