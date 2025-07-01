@@ -23,7 +23,7 @@ const saveOptions = () => {
     'patterns': patterns
   };
   mapping = {};
-  mapping.account = data;
+  mapping[account] = data;
 };
 
 const removePattern = (object) => {
@@ -42,11 +42,9 @@ const addPattern = (value) => {
   input.setAttribute('class', 'url-match');
   const button = document.createElement('button');
   button.setAttribute('class', 'remove-button');
-
-  button.innerText = "-";
+  button.innerText = '-';
   div.appendChild(input);
   div.appendChild(button);
-
   input.value = value;
   patterns.insertBefore(div, patterns.firstChild);
   button.addEventListener('click', removePatternHandler, button);

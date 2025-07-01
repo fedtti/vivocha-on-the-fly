@@ -21,7 +21,7 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 400;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.05rem;
   width: 45rem;
 }
 
@@ -32,35 +32,126 @@ h1 {
   text-align: center;
 }
 
-#container {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJtbW0+jDA+iFNVVbUFLADjgNiMyByQAACVoQ3jddxHjgAAAABJRU5ErkJggg==);
-  margin: 2.4rem 0 0 0;
-  padding: 3% 10% 3% 10%;
+h2,
+label {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+abbr,
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
+input,
+button {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.8rem;
+}
+
+input {
+  border:none;
+  color: #787878;
+  height: 3.3rem;
+  margin-bottom: 1.8rem;
+  padding-left: 2%;
+  width: 100%;
+}
+
+input:focus{
+  background: #d6f1f9;
+}
+
+input::placeholder {
+  text-transform: lowercase;
+}
+
+button {
+  background: #c2765a;
+  border: none;
+  border-radius: 0.2rem;
+  color: #efefef;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  height: 3.8rem;
+  letter-spacing: -0.05em;
+  padding: 0.3rem 1.5rem;
 }
 
 .hidden {
   display: none;
 }
 
-input, button {font-family: arial;font-size: 18px}
-button{ border-radius:2px; height: 38px; background: #c2765a; border: none; font-weight: 700;   color: #efefef; padding: 0.3em 1.5em;font-size: 1em;letter-spacing: -0.05em; cursor:pointer;}
-input {width: 100%;color: #787878;height: 33px; margin-bottom: 18px;border:none;padding-left: 2%;}
-input:focus{background: #D6F1F9; }
-label{display: block; font-size: 18px;}
+.remove-button {
+  left: 0;
+  margin-left: 0.4rem;
+  top: -3.2rem;
+  width: 2.5rem;
+}
 
-#account, #world {width: 100%;}
-.remove-button {width: 25px;margin-left: 4px;}
-#buttons{text-align: center;margin-top: 12px; position: relative}
-#link-home { background: url(images/onthefly_03.png); background-position: 50% 50%;height: 80px;width: 150px;  background-repeat: no-repeat; background-size: 66%; position: relative; margin: -35px auto;  top: -23px;  border-radius: 50%;}
-#buttons button:hover{opacity: 0.6;}
-#undo-button{background: #d8d8d8; color:#787878 }
-#add-button, .removebutton{background: #efefef; color: #181818;border:4px solid;width: 30px;height: 30px;line-height: 15px;text-align: center;padding: 0;border-radius: 50%;float: left;font-size: 1.5em;position: relative; left:94%; top: -28px;padding-right: 1px;font-weight: 700;}
+.remove-button:hover {
+  border-color:#dd565a;
+  color: #dd565a;
+}
+
+.url-match {
+  margin-left: auto auto 0 12%;
+  width: 88%;
+}
+
+.selected {
+  background: #c2765a !important;
+  color:white !important;
+}
+
+#container {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJtbW0+jDA+iFNVVbUFLADjgNiMyByQAACVoQ3jddxHjgAAAABJRU5ErkJggg==);
+  margin: 2.4rem 0 0 0;
+  padding: 3% 10%;
+}
+
+#link-home {
+  background: url(./images/on-the-fly.png) 50% 50% no-repeat;
+  background-size: 66%;
+  border-radius: 50%;
+  height: 8rem;
+  margin: -3.5rem auto;
+  position: relative;
+  top: -2.3rem;
+  width: 15rem;
+}
+
+#account,
+#world {
+  width: 100%;
+}
+
+#buttons {
+  margin-top: 12px;
+  position: relative;
+  text-align: center;
+}
+
+#buttons button:hover {
+  opacity: 0.6;
+}
+
+#add-button,
+.remove-button {
+  background: #efefef;
+  border: 0.4rem solid;
+  color: #181818;width: 30px;height: 30px;line-height: 15px;text-align: center;padding: 0;border-radius: 50%;float: left;font-size: 1.5em;position: relative; left:94%; top: -28px;padding-right: 1px;font-weight: 700;}
+
+#undo-button {
+  background: #d8d8d8;
+  color:#787878;
+}
+
 #patterns{max-height: 200px; overflow: auto; padding:  0; width: 100%;position: relative;top: -19px;}
 #patterns > div{width: 100%; max-height: 36px; float:left; }
 #add-button:hover{color: #c2765a; border-color: #c2765a;}
-.remove-button{left: 0;top: -32px; }
-.remove-button:hover{border-color:#dd565a; color: #dd565a;}
-.url-match{ margin-left: 12%; width: 88%; margin-bottom: 0}
 
 #advanced{background: transparent;float: right;/* width: 40px; */font-size: 0.7em;color: #787878;right: 0;position: absolute; background: #efefef; height: 22px; bottom:0;}
-.selected{background: #c2765a!important; color:white !important;}
