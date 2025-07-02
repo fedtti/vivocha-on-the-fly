@@ -1,5 +1,4 @@
-
-const getMapping = async () =>{
+const getMapping = async () => {
   return (await chrome.storage.local.get('vivocha-on-the-fly'))['vivocha-on-the-fly'];
 };
 

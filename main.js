@@ -68,19 +68,14 @@ const tellTabToInsertScript = () => {
   chrome.extension.sendMessage({ message: 'vivocha-insert' });
 };
 
-function persistOptionsHandler() {
-
+const persistOptionsHandler = () => {
   saveOptions();
 
-  
   localStorage['vivocha-on-the-fly'] = JSON.stringify(mapping);
 
-
   tellTabToInsertScript();
-
   window.close();
-
-}
+};
 
 const clear = () => {
   const patterns = document.getElementById('patterns');
